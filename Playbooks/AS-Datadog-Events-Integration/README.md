@@ -23,9 +23,9 @@ The following items are required under the template settings during deployment:
 * **Datadog Application Key** - [Documentation link](https://docs.datadoghq.com/developers/integrations/oauth_for_integration)
 * **Datadog API Key** - [Documentation link](https://docs.datadoghq.com/developers/integrations/oauth_for_integrations/#create-an-api-key)
 * **Datadog Domain** - [Documentation link](https://docs.datadoghq.com/developers/integrations/oauth_for_integrations/#cross-regional-support)
-* **Azure Key Vault Secret** - This will be used to store both your Datadog API Key and App Key. [Documentation link](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
-* **Sentinel Resource Name** - the name of the Log Analytics Workspace that the Datadog logs will be sent to. [Documentation link](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
-* **Sentinel Logs Workspace ID & Key** - the workspace ID and primary key of the Log Analytics Workspace that the Datadog logs will be sent to. [Documentation link](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
+* **Azure Key Vault Secret** - This will be used to store both your Datadog API Key and App Key. [Documentation link](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
+* **Sentinel Resource Name** - the name of the Log Analytics Workspace that the Datadog logs will be sent to. [Documentation link](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
+* **Sentinel Logs Workspace ID & Key** - the workspace ID and primary key of the Log Analytics Workspace that the Datadog logs will be sent to. [Documentation link](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
 
 > [!IMPORTANT]  
 > Preexisting and recent events will need to be present in Datadog in order to properly initialize the integration to Microsoft Sentinel
@@ -41,15 +41,15 @@ Navigate to an existing Key Vault or create a new one. From the Key Vault overvi
 
 ![Datadog_Integration_Key_Vault_1](Images/Datadog_Integration_Key_Vault_1.png)
 
-Choose a name for the secret that will store the API Key, such as "**AS-Datadog-Events-Integration-API-Key**", and enter the Datadog API Key copied previously in the [previous section](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#Create-a-Datadog-Application). All other settings can be left as is. Click "**Create**". 
+Choose a name for the secret that will store the API Key, such as "**AS-Datadog-Events-Integration-API-Key**", and enter the Datadog API Key copied previously in the [previous section](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#Create-a-Datadog-Application). All other settings can be left as is. Click "**Create**". 
 
 ![Datadog_Integration_Key_Vault_2](Images/Datadog_Integration_Key_Vault_2.png)
 
-Repeat this process for the Application Key, using a name such as "**AS-Datadog-Events-Integration-Application-Key**", and enter the Datadog Application Key copied previously in the [previous section](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#Create-a-Datadog-Application). All other settings can be left as is. Click "**Create**". 
+Repeat this process for the Application Key, using a name such as "**AS-Datadog-Events-Integration-Application-Key**", and enter the Datadog Application Key copied previously in the [previous section](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#Create-a-Datadog-Application). All other settings can be left as is. Click "**Create**". 
 
 ![Datadog_Integration_Key_Vault_3](Images/Datadog_Integration_Key_Vault_3.png)
 
-Once the secrets have been added to the vault, navigate to the "**Access policies**" menu option, also found under the "**Settings**" section on the Key Vault page menu. Leave this page open, as you will need to return to it once the playbook has been deployed. See [Granting Access to Azure Key Vault](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#granting-access-to-azure-key-vault).
+Once the secrets have been added to the vault, navigate to the "**Access policies**" menu option, also found under the "**Settings**" section on the Key Vault page menu. Leave this page open, as you will need to return to it once the playbook has been deployed. See [Granting Access to Azure Key Vault](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#granting-access-to-azure-key-vault).
 
 ![Datadog_Integration_Key_Vault_4](Images/Datadog_Integration_Key_Vault_4.png)
 
@@ -75,8 +75,8 @@ Open your browser and ensure you are logged into your Microsoft Sentinel workspa
 
 https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAccelerynt-Security%2FAS-Datadog-Events-Integration%2Fmaster%2Fazuredeploy.json)
-[![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAccelerynt-Security%2FAS-Datadog-Events-Integration%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FPlaybooks%2FAS-Datadog-Events-Integration%2Fazuredeploy.json)
+[![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FPlaybooks%2FAS-Datadog-Events-Integration%2Fazuredeploy.json)
 
 Click the “**Deploy to Azure**” button at the bottom and it will bring you to the custom deployment template.
 
@@ -89,13 +89,13 @@ In the **Instance details** section:
 
 * **Datadog Domain**: Enter the domain of the Datadog base URL, following the format of 'api.Datadog.com' referenced in the [Datadog documentation](https://docs.datadoghq.com/developers/integrations/oauth_for_integrations/#cross-regional-support).
 
-* **Key Vault Name**: Enter the name of the key vault referenced in [Create Azure Key Vault Secrets](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
+* **Key Vault Name**: Enter the name of the key vault referenced in [Create Azure Key Vault Secrets](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
 
-* **API Key Secret Name**: Enter the name of the API key vault Secret created in [Create Azure Key Vault Secrets](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
+* **API Key Secret Name**: Enter the name of the API key vault Secret created in [Create Azure Key Vault Secrets](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
 
-* **Applications Key Secret Name**: Enter the name of the Application key vault Secret created in [Create Azure Key Vault Secrets](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
+* **Applications Key Secret Name**: Enter the name of the Application key vault Secret created in [Create Azure Key Vault Secrets](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#create-azure-key-vault-secrets).
 
-* **Sentinel Resource Name**: Enter the name of the Microsoft Sentinel Resource you will be sending the logs to referenced in [Log Analytics Workspace](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
+* **Sentinel Resource Name**: Enter the name of the Microsoft Sentinel Resource you will be sending the logs to referenced in [Log Analytics Workspace](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#Log-Analytics-Workspace).
 
 Towards the bottom, click on "**Review + create**". 
 
@@ -199,7 +199,7 @@ Click **Save**.
 
 ![Datadog_Integration_Initial_Run_10](Images/Datadog_Integration_Initial_Run_10.png)
 
-The [last section](https://github.com/Accelerynt-Security/AS-Datadog-Events-Integration#viewing-custom-logs) outlines how to view the custom logs to ensure they have been properly populated. After confirming the table has been created, go ahead and enable the Logic App.
+The [last section](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/AS-Datadog-Events-Integration#viewing-custom-logs) outlines how to view the custom logs to ensure they have been properly populated. After confirming the table has been created, go ahead and enable the Logic App.
 
 ![Datadog_Integration_Initial_Run_11](Images/Datadog_Integration_Initial_Run_11.png)
 
