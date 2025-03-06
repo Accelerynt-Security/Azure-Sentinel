@@ -5,7 +5,7 @@
         "title": "AS-Datadog-Events-Integration", 
         "description": "This playbook is intended to be run on a timmed trigger. It will poll Datadog for new events and replicate them in Sentinel",
         "preDeployment": ["Azure Keyvault Secret"],
-        "postDeployment": ["Access to the Azure Key Vault must be granted to the playbook"],
+        "postDeployment":["Access to the Azure Key Vault must be granted to the playbook", "Connections in playbook must be authenticated", "Run After conditions must be adjusted after first successful run and confirmed table population"],
         "lastUpdateTime": "2025-01-06T17:48:00Z",
         "tags": ["Datadog", "Microsoft Sentinel"], 
         "support": {
